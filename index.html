@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT Maju Bersama | Analytics</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">▥</span><div><strong>PT Maju Bersama</strong><small>Business Performance Analytics</small></div></div>
+    <nav>
+      <button class="nav-btn active" data-tab="ringkasan">⌂ <span>Ringkasan</span></button>
+      <button class="nav-btn" data-tab="analisis">▥ <span>Analisis Data</span></button>
+      <button class="nav-btn" data-tab="kualitas">▤ <span>Kualitas Data</span></button>
+      <button class="nav-btn" data-tab="faktur">▧ <span>Analisis Faktur</span></button>
+      <button class="nav-btn" data-tab="prediksi">✳ <span>Prediksi & AI</span></button>
+    </nav>
+    <div class="sidebar-foot">Make Sense of Data<br>with Analytics and AI</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><h1 id="page-title">Ringkasan Kinerja</h1><p>Dashboard pembelajaran menggunakan data simulasi</p></div><div class="period">PERIODE DATA <strong>Jan 2023 – Des 2024</strong></div></header>
+    <section id="ringkasan" class="tab-panel active">
+      <div class="kpis">
+        <article class="kpi blue"><span>Total Penjualan</span><strong id="sales-kpi">—</strong><small id="sales-change"></small></article>
+        <article class="kpi green"><span>Laba Bersih</span><strong id="profit-kpi">—</strong><small id="profit-change"></small></article>
+        <article class="kpi orange"><span>Piutang Usaha</span><strong id="receivable-kpi">—</strong><small id="receivable-change"></small></article>
+        <article class="kpi purple"><span>Arus Kas Operasional</span><strong id="cash-kpi">—</strong><small id="cash-change"></small></article>
+      </div>
+      <div class="grid two">
+        <article class="panel"><div class="panel-heading"><h2>Tren Kinerja Keuangan</h2><span class="muted">2023–2024</span></div><canvas id="trend-chart"></canvas></article>
+        <article class="panel"><div class="panel-heading"><h2>Perbandingan Tahunan</h2></div><canvas id="year-chart"></canvas></article>
+      </div>
+      <div class="grid two lower">
+        <article class="panel"><h2>Temuan Utama</h2><div id="findings" class="findings"></div></article>
+        <article class="panel insight"><h2>Insight Analitik</h2><p id="insight-text"></p><h3>Rekomendasi</h3><ul id="recommendations"></ul></article>
+      </div>
+      <p class="note">Catatan: seluruh data merupakan data simulasi untuk pembelajaran, bukan data perusahaan nyata.</p>
+    </section>
+    <section id="analisis" class="tab-panel">
+      <div class="section-intro"><h2>Analisis Data</h2><p>Gunakan data untuk bergerak dari deskripsi menuju keputusan.</p></div>
+      <div class="grid two"><article class="panel"><h2>Data → Informasi → Insight → Keputusan</h2><div class="steps"><div><b>1. Data</b><p>Catatan penjualan, biaya, piutang, dan arus kas per bulan.</p></div><div><b>2. Informasi</b><p>Penjualan naik, tetapi laba dan arus kas melemah.</p></div><div><b>3. Insight</b><p>Kenaikan penjualan saja belum cukup jika biaya dan piutang ikut meningkat.</p></div><div><b>4. Keputusan</b><p>Tinjau margin produk, pengendalian biaya, dan penagihan piutang.</p></div></div></article>
+      <article class="panel"><h2>Empat Jenis Analitik</h2><div class="analytic-list"><div><b>Descriptive</b><span>Apa yang terjadi?</span><p>Ringkas tren penjualan, laba, piutang, dan kas.</p></div><div><b>Diagnostic</b><span>Mengapa terjadi?</span><p>Bandingkan perubahan biaya dan indikator lain.</p></div><div><b>Predictive</b><span>Apa yang mungkin terjadi?</span><p>Gunakan pola historis sebagai indikasi risiko, bukan kepastian.</p></div><div><b>Prescriptive</b><span>Apa yang sebaiknya dilakukan?</span><p>Prioritaskan tindakan yang bisa diuji dan dievaluasi.</p></div></div></article></div>
+      <article class="panel"><h2>Data Kinerja Bulanan</h2><div class="table-wrap"><table id="monthly-table"><thead><tr><th>Bulan</th><th>Penjualan</th><th>Laba Bersih</th><th>Piutang</th><th>Arus Kas</th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+    <section id="kualitas" class="tab-panel">
+      <div class="section-intro"><h2>Kualitas Data</h2><p>Contoh masalah kualitas data yang disisipkan ke dataset simulasi.</p></div>
+      <div class="kpis small-kpis"><article class="kpi blue"><span>Jumlah Faktur Mentah</span><strong id="raw-count">—</strong></article><article class="kpi orange"><span>ID Faktur Duplikat</span><strong id="duplicate-count">—</strong></article><article class="kpi purple"><span>Nilai Faktur Tidak Valid</span><strong id="invalid-count">—</strong></article><article class="kpi green"><span>Diskon Kosong</span><strong id="missing-count">—</strong></article></div>
+      <article class="panel"><h2>Contoh pemeriksaan</h2><div id="quality-notes" class="quality-notes"></div></article>
+      <article class="panel"><h2>Prinsip pembersihan</h2><ol><li>Periksa format tanggal dan tipe data.</li><li>Identifikasi duplikasi berdasarkan ID faktur.</li><li>Validasi nilai faktur yang nol atau negatif.</li><li>Isi nilai kosong dengan aturan yang terdokumentasi, bukan sembarang angka.</li><li>Simpan data mentah agar proses dapat diaudit.</li></ol></article>
+    </section>
+    <section id="faktur" class="tab-panel">
+      <div class="section-intro"><h2>Analisis Faktur</h2><p>Ringkasan status keterlambatan pembayaran berdasarkan data simulasi.</p></div>
+      <div class="kpis small-kpis"><article class="kpi blue"><span>Total Faktur</span><strong id="invoice-total">—</strong></article><article class="kpi orange"><span>Terlambat &gt; 30 Hari</span><strong id="late-total">—</strong></article><article class="kpi purple"><span>Persentase Terlambat</span><strong id="late-rate">—</strong></article></div>
+      <div class="grid two"><article class="panel"><h2>Tingkat Keterlambatan per Termin</h2><canvas id="terms-chart"></canvas></article><article class="panel"><h2>Ringkasan Data Faktur</h2><div id="invoice-summary"></div></article></div>
+      <article class="panel"><h2>Contoh Faktur</h2><div class="table-wrap"><table id="invoice-table"><thead><tr><th>ID Faktur</th><th>Pelanggan</th><th>Nilai</th><th>Termin (hari)</th><th>Hari Terlambat</th><th>Status</th></tr></thead><tbody></tbody></table></div></article>
+    </section>
+    <section id="prediksi" class="tab-panel">
+      <div class="section-intro"><h2>Prediksi & AI</h2><p>Simulasi penilaian risiko faktur dengan aturan sederhana yang transparan.</p></div>
+      <div class="notice"><b>Penting:</b> ini bukan model machine learning terlatih dan bukan nasihat finansial. Skor di bawah adalah heuristik edukatif untuk menunjukkan cara analitik membantu prioritas pemeriksaan.</div>
+      <div class="grid two"><article class="panel"><h2>Coba skenario faktur</h2><form id="risk-form" class="risk-form"><label>Nilai faktur (Rp)<input id="amount" type="number" min="1" value="15000000" required></label><label>Diskon (%)<input id="discount" type="number" min="0" max="100" step=".1" value="5" required></label><label>Termin pembayaran (hari)<select id="terms"><option value="14">14 hari</option><option value="30" selected>30 hari</option><option value="45">45 hari</option><option value="60">60 hari</option></select></label><button type="submit" class="primary-btn">Analisis Risiko</button></form><div id="risk-result" class="risk-result">Masukkan skenario lalu pilih Analisis Risiko.</div></article><article class="panel"><h2>Bagaimana skor dihitung?</h2><ul><li>Termin lebih panjang menambah skor risiko.</li><li>Diskon tinggi menambah skor pemeriksaan karena dapat mengurangi margin.</li><li>Nilai faktur besar mendapat prioritas pemantauan.</li></ul><p class="muted">Aturan ini sengaja sederhana dan tidak menggantikan evaluasi historis atau penilaian manusia.</p></article></div>
+      <article class="panel"><h2>Penggunaan AI yang bertanggung jawab</h2><ul><li>Pastikan data relevan, bersih, dan cukup mewakili kondisi nyata.</li><li>Jangan menyatakan korelasi sebagai sebab-akibat tanpa pengujian.</li><li>Uji hasil prediksi pada data terpisah sebelum dipakai untuk keputusan.</li><li>Dokumentasikan asumsi, risiko, dan keterbatasan.</li></ul></article>
+    </section>
+    <footer>PT Maju Bersama Analytics · Proyek edukasi · Data simulasi</footer>
+  </main>
+</body>
+</html>
